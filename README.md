@@ -13,7 +13,7 @@ Installation
 Add solidus_bank_transfer to your Gemfile:
 
 ```ruby
-gem 'solidus_bank_transfer'
+gem 'solidus_furikomi', github: 'cmbaldwin/solidus_furikomi'
 ```
 
 Bundle your dependencies and run the installation generator:
