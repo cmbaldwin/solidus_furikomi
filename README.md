@@ -3,9 +3,9 @@ SolidusBankTransfer
 
 [![Build Status](https://travis-ci.org/welaika/solidus_bank_transfer.svg?branch=master)](https://travis-ci.org/welaika/solidus_bank_transfer)
 
-This extensions add a Bank Transfer payment method.
+This extensions adds a Japanese Bank Transfer payment method.
 
-You can define bank name, IBAN number and holder name in the backend. This data will be shown to the user in the checkout process.
+You can define bank details in Japanese in the backend. This data will be shown to the user in the checkout process, and sent in a confirmation email.
 
 Installation
 ------------
