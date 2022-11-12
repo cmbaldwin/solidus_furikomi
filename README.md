@@ -1,16 +1,16 @@
 SolidusBankTransfer
 ===================
 
-[![Build Status](https://travis-ci.org/welaika/solidus_bank_transfer.svg?branch=master)](https://travis-ci.org/welaika/solidus_bank_transfer)
-
 This extensions adds a Japanese Bank Transfer payment method.
 
-You can define bank details in Japanese in the backend. This data will be shown to the user in the checkout process, and sent in a confirmation email.
+You can define Japanese furikomi style bank details in the backend. This data will be shown to the user in the checkout process, and sent in a confirmation email.
+
+Currently under development.
 
 Installation
 ------------
 
-Add solidus_bank_transfer to your Gemfile:
+Add solidus_furikomi to your Gemfile:
 
 ```ruby
 gem 'solidus_furikomi', github: 'cmbaldwin/solidus_furikomi'
@@ -20,7 +20,7 @@ Bundle your dependencies and run the installation generator:
 
 ```shell
 bundle
-bundle exec rails g solidus_bank_transfer:install
+bundle exec rails g solidus_furikomi:install
 ```
 
 Testing
@@ -43,7 +43,7 @@ When testing your application's integration with this extension you may use its 
 Simply add this require statement to your spec_helper:
 
 ```ruby
-require 'solidus_bank_transfer/factories'
+require 'solidus_furikomi/factories'
 ```
 
 Releasing
@@ -58,6 +58,4 @@ bundle exec gem bump -v VERSION --tag --push --remote upstream && gem release
 Author
 ------
 
-made with ❤️and ☕️by weLaika
-
-Copyright (c) 2019 weLaika, released under the New BSD License
+Copyright (c) 2022 Cody Baldwin

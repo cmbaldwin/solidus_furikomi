@@ -2,11 +2,14 @@
 
 require 'spec_helper'
 
-RSpec.describe 'Checkout - Payment with bank transfer', type: :feature, js: true do
+RSpec.describe 'Checkout - Payment with furikomi', type: :feature, js: true do
   let(:payment_method) do
-    create(:bank_transfer_payment_method,
-           name: 'Bonifico',
-           preferred_bank_name: 'Banca del Monopoli')
+    create(:furikomi_payment_method,
+           bank_name: 'みなと銀行',
+           branch_name: '赤穂支店',
+           account_type: '普通',
+           account_number: '1234567890',
+           account_holder_name: 'カブ）ドナルドダック')
   end
 
   let(:user) { create(:user_with_addresses) }
@@ -25,8 +28,11 @@ RSpec.describe 'Checkout - Payment with bank transfer', type: :feature, js: true
     visit spree.checkout_state_path(:payment)
   end
 
-  it 'shows the bank transfer payment' do
-    expect(page).to have_content('Bonifico')
-    expect(page).to have_content('Banca del Monopoli')
+  it 'shows the furikomi payment' do
+    expect(page).to have_content('みなと銀行')
+    expect(page).to have_content('赤穂支店')
+    expect(page).to have_content('普通')
+    expect(page).to have_content('1234567890')
+    expect(page).to have_content('カブ）ドナルドダック')
   end
 end

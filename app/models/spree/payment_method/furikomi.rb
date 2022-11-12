@@ -1,10 +1,12 @@
 # frozen_string_literal: true
 
 module Spree
-  class PaymentMethod::BankTransfer < PaymentMethod
-    preference :iban, :string
+  class PaymentMethod::Furikomi < PaymentMethod
     preference :bank_name, :string
-    preference :holder, :string
+    preference :branch_name, :string
+    preference :account_type, :string
+    preference :account_number, :string
+    preference :account_holder_name, :string
 
     def actions
       %w[capture void credit]

@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-module SolidusBankTransfer
+module SolidusFurikomi
   class Engine < Rails::Engine
     require 'spree/core'
     isolate_namespace Spree
-    engine_name 'solidus_bank_transfer'
+    engine_name 'solidus_furikomi'
 
     # use rspec for tests
     config.generators do |g|
@@ -18,7 +18,7 @@ module SolidusBankTransfer
     end
 
     initializer 'spree.register.payment_methods' do |app|
-      app.config.spree.payment_methods << Spree::PaymentMethod::BankTransfer
+      app.config.spree.payment_methods << Spree::PaymentMethod::Furikomi
     end
 
     config.to_prepare(&method(:activate).to_proc)

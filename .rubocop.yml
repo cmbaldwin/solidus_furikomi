@@ -34,7 +34,7 @@ RSpec/MultipleExpectations:
 
 Style/ClassAndModuleChildren:
   Exclude:
-    - 'app/models/spree/payment_method/bank_transfer.rb'
+    - 'app/models/spree/payment_method/furikomi.rb'
 
 Style/Documentation:
   Enabled: false

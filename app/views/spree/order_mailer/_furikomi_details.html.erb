@@ -1,0 +1,30 @@
+<%
+  payment_method =
+    @order.payments.map(&:payment_method).select do |pm|
+      pm.is_a?(Spree::PaymentMethod::Furikomi)
+    end.first
+%>
+
+<% if payment_method.present? %>
+  <h4><%= t('spree.furikomi.pay_with_this_method') %></h4>
+  <p>
+    <strong><%= t('spree.furikomi.reason_for_payment') %>: </strong>
+    <span><%= t('spree.furikomi.reason_for_payment_value', order_number: @order.number) %></span>
+    <br>
+    <strong><%= t('.bank_name') %>: </strong>
+    <span><%= payment_method.bank_name %></span>
+    <br>
+    <strong><%= t('.branch_name') %>: </strong>
+    <span><%= payment_method.branch_name %></span>
+    <br>
+    <strong><%= t('.account_type') %>: </strong>
+    <span><%= payment_method.account_type %></span>
+    <br>
+    <strong><%= t('.account_number') %>: </strong>
+    <span><%= payment_method.account_number %></span>
+    <br>
+    <strong><%= t('.account_holder_name') %>: </strong>
+    <span><%= payment_method.account_name %></span>
+    <br>
+  </p>
+<% end %>

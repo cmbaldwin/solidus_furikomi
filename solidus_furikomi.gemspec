@@ -1,27 +1,23 @@
 # frozen_string_literal: true
 
 $LOAD_PATH.push File.expand_path('lib', __dir__)
-require 'solidus_bank_transfer/version'
+require 'solidus_furikomi/version'
 
 Gem::Specification.new do |s|
-  s.name        = 'solidus_bank_transfer'
-  s.version     = SolidusBankTransfer::VERSION
-  s.summary     = 'Bank Transfer'
-  s.description = 'Bank Transfer'
+  s.name        = 'solidus_furikomi'
+  s.version     = SolidusFurikomi::VERSION
+  s.summary     = 'Solidus Furikomi (Japanese Bank Transfer)'
+  s.description = 'Solidus Furikomi (Japanese Bank Transfer)'
   s.license     = 'BSD-3-Clause'
 
-  s.author    = 'Fabrizio Monti'
-  s.email     = 'fabrizio.monti@welaika.com'
-  s.homepage  = 'https://dev.welaika.com'
-  s.metadata = {
-    'changelog_uri' => 'https://github.com/welaika/solidus_bank_transfer/blob/master/CHANGELOG.md',
-    'source_code_uri' => 'https://github.com/welaika/solidus_bank_transfer'
-  }
+  s.authors    = ['Fabrizio Monti', 'Cody Baldwin']
+  s.email     = 'codybaldwin@gmail.com'
+  s.homepage  = 'https://cozyorb.com'
 
   s.files = Dir['{app,config,db,lib}/**/*', 'LICENSE', 'Rakefile', 'README.md']
   s.test_files = Dir['spec/**/*']
 
-  s.add_dependency 'solidus_core', '>= 2.8.2', '< 3.1'
+  s.add_dependency 'solidus_core'
 
   s.add_development_dependency 'capybara', '~> 3.28'
   s.add_development_dependency 'coffee-rails'

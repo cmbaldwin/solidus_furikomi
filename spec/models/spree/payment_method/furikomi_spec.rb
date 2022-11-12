@@ -2,9 +2,9 @@
 
 require 'spec_helper'
 
-RSpec.describe Spree::PaymentMethod::BankTransfer, type: :model do
+RSpec.describe Spree::PaymentMethod::Furikomi, type: :model do
   let(:order) { Spree::Order.new }
-  let(:payment_method) { described_class.create!(name: 'Bank Transfer', active: true) }
+  let(:payment_method) { described_class.create!(name: 'Furikomi', active: true) }
   let(:payment) do
     Spree::Payment.new(amount: 0.0, order: order, payment_method: payment_method)
   end
@@ -16,17 +16,21 @@ RSpec.describe Spree::PaymentMethod::BankTransfer, type: :model do
   describe 'preferences' do
     before do
       payment_method.update!(
-        preferred_bank_name: 'Uncle Scrooge Bank & Partners',
-        preferred_iban: 'IT00 S000 0000 0000 0000 0123 456',
-        preferred_holder: 'Donald Duck'
+        preferred_bank_name: 'みなと銀行',
+        preferred_branch_name: '赤穂支店',
+        preferred_account_type: '普通',
+        preferred_account_number: '1234567890',
+        preferred_account_holder_name: 'カブ）ドナルドダック'
       )
     end
 
     it 'saves the preferences' do
       aggregate_failures do
-        expect(payment_method.preferred_bank_name).to eq('Uncle Scrooge Bank & Partners')
-        expect(payment_method.preferred_iban).to eq('IT00 S000 0000 0000 0000 0123 456')
-        expect(payment_method.preferred_holder).to eq('Donald Duck')
+        expect(payment_method.preferred_bank_name).to eq('みなと銀行')
+        expect(payment_method.preferred_branch_name).to eq('赤穂支店')
+        expect(payment_method.preferred_account_type).to eq('普通')
+        expect(payment_method.preferred_account_number).to eq('1234567890')
+        expect(payment_method.preferred_account_holder_name).to eq('カブ）ドナルドダック')
       end
     end
   end

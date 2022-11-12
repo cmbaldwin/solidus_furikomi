@@ -1,17 +1,7 @@
 en:
-  activerecord:
-    models:
-      spree/payment_method/bank_transfer: Bank transfer payments
   spree:
-    holder: Holder
-    iban: IBAN
-    bank_name: Bank name
-
-    bank_transfer:
-      pay_with_this_method: Pay with bank transfer
-      holder: Holder
-      iban: IBAN
-      bank_name: Bank name
-      reason_for_payment: Reason for payment
-      reason_for_payment_instructions: enter the order number (it will be sent by email after completing the order).
-      reason_for_payment_value: "Order %{order_number}"
+    checkout:
+      payment:
+        furikomi:
+          furikomi_checkout_title: Japanese Bank Transfer
+          furikomi_checkout_instructions: You will receive an email with bank transfer details and your order total after your order is confirmed.
