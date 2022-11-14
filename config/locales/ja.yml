@@ -3,5 +3,5 @@ ja:
     checkout:
       payment:
         furikomi:
-          furikomi_title: 銀行振込
+          furikomi_checkout_title: 銀行振込
           furikomi_checkout_instructions: ご注文確認後、銀行振込先とご注文合計金額を記載したメールをお送りします。
